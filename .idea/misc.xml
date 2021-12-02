@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/2dpdn/Mobile-programming/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/activity_main.xml" value="0.12" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/dalgona1.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/dalgona_main.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/select_level.xml" value="0.264" />
       </map>
     </option>
   </component>
