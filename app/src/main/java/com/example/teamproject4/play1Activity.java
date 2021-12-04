@@ -2,14 +2,24 @@ package com.example.teamproject4;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class play1Activity extends AppCompatActivity {
+    public static boolean end=false;
+    TextView textView;
+    private int mnMilliSecond=1000;
+    private int value=30;
+
 
     static DButton[][] buttons = new DButton[9][9];
 
@@ -17,6 +27,32 @@ public class play1Activity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.dalgona_game);
+
+        textView=findViewById(R.id.timer);
+
+        new CountDownTimer(30*1000,1000){
+            @Override
+            public void onTick(long millisUntilFinished){
+                value--;
+                textView.setText(value+"초");
+                if(end)
+                    textView.setText("게임 종료");
+                if(DButton.lines==0)
+                    textView.setText("게임 성공");
+            }
+            @Override
+            public void onFinish(){
+                if(DButton.lines==0)
+                    textView.setText("게임 성공");
+                else{
+                    textView.setText("게임 종료");
+                    end=true;
+                }
+
+            }
+
+        }.start();
+
 
         TableLayout table;
         table = (TableLayout) findViewById(R.id.tableLayout);
@@ -30,7 +66,7 @@ public class play1Activity extends AppCompatActivity {
         }
         //달고나 선 지정: true일때 선 부분임 (일단 네모모양으로 함)
         for(i=2;i<7;i++) {
-            bb[i][6] = true;
+            bb[i][2] = true;
             bb[i][6]=true;
         }
         for(i=2;i<7;i++){
@@ -54,21 +90,24 @@ public class play1Activity extends AppCompatActivity {
                 buttons[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        ((DButton)view).DClick();
+                        if(DButton.lines==0){
 
-                       /* if (t.isChecked()) {
-                            ((BlockButton) view).toggleFlag();
-                            TextView textView = (TextView) findViewById(R.id.textView);
-                            textView.setText("Mines:" + String.valueOf(BlockButton.flags));
-                        } else {
-                            ((BlockButton) view).breakBlock();
 
-                        }*/
+                        }
+
+
                     }
                 });
             }
         }
 
     }
+
+
+
+
+
 }
 
 
