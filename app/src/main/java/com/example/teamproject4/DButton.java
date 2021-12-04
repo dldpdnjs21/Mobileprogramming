@@ -16,16 +16,12 @@ public class DButton extends AppCompatButton {
         this.x = x;
         this.y = y;
         this.dalgona = a;
-
         if(dalgona){
             setBackground(getResources().getDrawable(R.drawable.linexml));
-
         }else{
             setBackground(getResources().getDrawable(R.drawable.dalgonaxml));
         }
-         //버튼배경이미지
     }
-
     public boolean DClick() {
         if(play1Activity.end){
             for(int i=0;i<9;i++)
@@ -48,20 +44,11 @@ public class DButton extends AppCompatButton {
                     for(int j=0;j<9;j++)
                         play1Activity.buttons[i][j].setClickable(false);
             }
-
         }
-
         if(!isClickable()){
             return false;
         } // 이미 한번 클릭됐으면 블락 못열음
         setClickable(false);  //한번 열면 클릭 못하게
-
-
-
         return true;
     }
-
-
-
-
 }
