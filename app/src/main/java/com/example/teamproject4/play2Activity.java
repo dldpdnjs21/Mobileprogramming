@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class play2Activity extends AppCompatActivity {
-    static GButton[][] buttons = new GButton[7][2];
+    static GButton[][] buttons = new GButton[5][2];
 
     @Override
     protected void onCreate(@Nullable Bundle saveInstanceState) {
@@ -16,13 +16,24 @@ public class play2Activity extends AppCompatActivity {
         setContentView(R.layout.glass_game);
 
         int i=0,j=0;
+        Boolean bb[][] = new Boolean[9][9];
+        for (i = 0; i < 9; i++) {
+            for (j = 0; j < 9; j++) {
+                bb[i][j] = false;
+            }
+        }
+        bb[0][1]=true;
+        bb[1][0]=true;
+        bb[2][1]=true;
+        bb[3][1]=true;
+        bb[4][0]=true;
         TableLayout table;
         table = (TableLayout) findViewById(R.id.tableLayout2);
-        for (i = 0; i < 7; i++) {
+        for (i = 0; i < 5; i++) {
             TableRow tableRow = new TableRow(this);
             table.addView(tableRow);
             for (j = 0; j < 2; j++) {
-                buttons[i][j] = new GButton(this, i, j);
+                buttons[i][j] = new GButton(this, i, j,bb[i][j]);
                 TableRow.LayoutParams layoutParams =
                         new TableRow.LayoutParams(
                                 TableRow.LayoutParams.WRAP_CONTENT,
@@ -30,11 +41,19 @@ public class play2Activity extends AppCompatActivity {
                                 1.0f);
                 buttons[i][j].setLayoutParams(layoutParams);
                 tableRow.addView(buttons[i][j]);
+                /*
+                for(int x=0;x<4;x++)
+                    for(int y=0;y<2;y++)
+                        play1Activity.buttons[i][j].setClickable(false); */
+
+                for(int x=0;x<4;x++)
+                    for(int y=0;y<2;y++)
+                        buttons[i][j].setClickable(false);
 
                 buttons[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        ((GButton) view).GClick();
                     }
                 });
             }

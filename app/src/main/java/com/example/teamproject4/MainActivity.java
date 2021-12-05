@@ -27,12 +27,10 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), play2Activity.class);
+                Intent intent = new Intent(getApplicationContext(), game2Activity.class);
                 startActivity(intent);
             }
         });
-
-
 
 
 

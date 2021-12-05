@@ -13,43 +13,51 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class play1Activity extends AppCompatActivity {
     public static boolean end=false;
     TextView textView;
     private int mnMilliSecond=1000;
     private int value=30;
+
+
     static DButton[][] buttons = new DButton[9][9];
+
     @Override
     protected void onCreate(@Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.dalgona_game);
 
-        textView = findViewById(R.id.timer);
-        new CountDownTimer(30 * 1000, 1000) { //타이머
+        textView=findViewById(R.id.timer);
+
+        new CountDownTimer(30*1000,1000){
             @Override
-            public void onTick(long millisUntilFinished) {
+            public void onTick(long millisUntilFinished){
                 value--;
-                textView.setText(value + "초");
-                if (end)
+                textView.setText(value+"초");
+                if(end)
                     textView.setText("게임 종료");
-                if (DButton.lines == 0)
+                if(DButton.lines==0)
                     textView.setText("게임 성공");
             }
             @Override
-            public void onFinish() {
-                if (DButton.lines == 0)
+            public void onFinish(){
+                if(DButton.lines==0)
                     textView.setText("게임 성공");
-                else {
+                else{
                     textView.setText("게임 종료");
-                    end = true;
+                    end=true;
                 }
+
             }
+
         }.start();
+
 
         TableLayout table;
         table = (TableLayout) findViewById(R.id.tableLayout);
         // BlockButton[][] buttons = new BlockButton[9][9];
-        int i = 0, j = 0;
+        int i=0, j=0;
         Boolean bb[][] = new Boolean[9][9];
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
@@ -57,18 +65,19 @@ public class play1Activity extends AppCompatActivity {
             }
         }
         //달고나 선 지정: true일때 선 부분임 (일단 네모모양으로 함)
-        for (i = 2; i < 7; i++) {
+        for(i=2;i<7;i++) {
             bb[i][2] = true;
-            bb[i][6] = true;
+            bb[i][6]=true;
         }
-        for (i = 2; i < 7; i++) {
-            bb[2][i] = true;
-            bb[6][i] = true;
+        for(i=2;i<7;i++){
+            bb[2][i]=true;
+            bb[6][i]=true;
         }
-        for (i = 0; i < 9; i++) {
+
+        for(i=0;i<9;i++){
             TableRow tableRow = new TableRow(this);
             table.addView(tableRow);
-            for (j = 0; j < 9; j++) {
+            for(j=0;j<9;j++){
                 buttons[i][j] = new DButton(this, i, j, bb[i][j]);
                 TableRow.LayoutParams layoutParams =
                         new TableRow.LayoutParams(
@@ -81,12 +90,24 @@ public class play1Activity extends AppCompatActivity {
                 buttons[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        ((DButton) view).DClick();
+                        ((DButton)view).DClick();
+                        if(DButton.lines==0){
+
+
+                        }
+
+
                     }
                 });
             }
         }
+
     }
+
+
+
+
+
 }
 
 
