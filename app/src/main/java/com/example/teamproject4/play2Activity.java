@@ -45,24 +45,21 @@ public class play2Activity extends AppCompatActivity {
                                 1.0f);
                 buttons[i][j].setLayoutParams(layoutParams);
                 tableRow.addView(buttons[i][j]);
+            }
+        }
 
-                buttons[0][0].setClickable(false);
-                if(count==2)
-                    buttons[0][1].setClickable(false);
-                if(count==3)
-                    buttons[1][0].setClickable(false);
-                if(count==4)
-                    buttons[1][1].setClickable(false);
-                if(count==5)
-                    buttons[2][0].setClickable(false);
-                if(count==6)
-                    buttons[2][1].setClickable(false);
-                if(count==7)
-                    buttons[3][0].setClickable(false);
-                if(count==8)
-                    buttons[3][1].setClickable(false);
+        /*for(i=0;i<4;i++){
+            for(j=0;j<2;j++){
+                buttons[i][j].setClickable(false);
+            }
+        }*/
 
-
+        for(i=0;i<5;i++){
+            for(j=0;j<2;j++){
+                for(int x=0;x<4;x++){
+                    for(int y=0;y<2;y++){
+                        buttons[x][y].setClickable(false);
+                    }}
                 buttons[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -72,5 +69,6 @@ public class play2Activity extends AppCompatActivity {
                 });
             }
         }
+
     }
 }
