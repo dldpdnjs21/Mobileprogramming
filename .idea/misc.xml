@@ -4,15 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/2dpdn/Mobile-programming/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/drawable/glassxml.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/dalgona_game.xml" value="0.2" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/glass_game.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/glass_main.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/drawable/dalgonaxml.xml" value="0.1" />
+        <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/drawable/glass2xml.xml" value="0.1953125" />
+        <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/drawable/glassxml.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/drawable/linexml.xml" value="0.1675925925925926" />
-        <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/dalgona_game.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/dalgona_game.xml" value="0.1" />
         <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/dalgona_main.xml" value="0.175" />
+        <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/glass_game.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/nosuj/AndroidStudioProjects/TEAMPROJECT4/app/src/main/res/layout/select_level.xml" value="0.175" />
       </map>
     </option>
