@@ -21,7 +21,7 @@ public class play1Activity extends AppCompatActivity {
     private int value=30;
 
 
-    static DButton[][] buttons = new DButton[9][9];
+    static DButton[][] buttons = new DButton[10][10];
 
     @Override
     protected void onCreate(@Nullable Bundle saveInstanceState) {
@@ -48,36 +48,31 @@ public class play1Activity extends AppCompatActivity {
                     textView.setText("게임 종료");
                     end=true;
                 }
-
             }
-
         }.start();
-
-
         TableLayout table;
         table = (TableLayout) findViewById(R.id.tableLayout);
         // BlockButton[][] buttons = new BlockButton[9][9];
         int i=0, j=0;
-        Boolean bb[][] = new Boolean[9][9];
-        for (i = 0; i < 9; i++) {
-            for (j = 0; j < 9; j++) {
+        Boolean bb[][] = new Boolean[10][10];
+        for (i = 0; i < 10; i++) {
+            for (j = 0; j < 10; j++) {
                 bb[i][j] = false;
             }
         }
         //달고나 선 지정: true일때 선 부분임 (일단 네모모양으로 함)
-        for(i=2;i<7;i++) {
+        for(i=2;i<8;i++) {
             bb[i][2] = true;
-            bb[i][6]=true;
+            bb[i][7]=true;
         }
-        for(i=2;i<7;i++){
+        for(i=2;i<8;i++){
             bb[2][i]=true;
-            bb[6][i]=true;
+            bb[7][i]=true;
         }
-
-        for(i=0;i<9;i++){
+        for(i=0;i<10;i++){
             TableRow tableRow = new TableRow(this);
             table.addView(tableRow);
-            for(j=0;j<9;j++){
+            for(j=0;j<10;j++){
                 buttons[i][j] = new DButton(this, i, j, bb[i][j]);
                 TableRow.LayoutParams layoutParams =
                         new TableRow.LayoutParams(
@@ -91,23 +86,11 @@ public class play1Activity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         ((DButton)view).DClick();
-                        if(DButton.lines==0){
-
-
-                        }
-
-
                     }
                 });
             }
         }
-
     }
-
-
-
-
-
 }
 
 

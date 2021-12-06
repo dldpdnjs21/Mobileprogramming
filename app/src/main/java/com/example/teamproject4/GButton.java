@@ -17,25 +17,32 @@ public class GButton extends AppCompatButton {
         this.y = y;
         this.tempered=a;
         setBackground(getResources().getDrawable(R.drawable.glassxml));
-
-
-
+        /*if(tempered){
+            setBackground(getResources().getDrawable(R.drawable.dalgonaxml));
+        }else {
+            setBackground(getResources().getDrawable(R.drawable.glassxml));
+        }*/
     }
     public boolean GClick() {
+        if(play1Activity.end){
+            for(int i=0;i<10;i++)
+                for(int j=0;j<10;j++)
+                    play1Activity.buttons[i][j].setClickable(false); // 모든 버튼 클릭 비활성화
+            return true; //게임 실패
+        }
         if(tempered==false){
             setBackground(getResources().getDrawable(R.drawable.glass2xml));
             for(int i=0;i<5;i++)
                 for(int j=0;j<2;j++)
                     play2Activity.buttons[i][j].setClickable(false); // 모든 버튼 클릭 비활성화
+            play2Activity.end=true;
         }else{
             pass++;
             if(pass==1){
-                setBackground(getResources().getDrawable(R.drawable.dalgonaxml));
                 play2Activity.buttons[4][0].setClickable(false);
                 play2Activity.buttons[4][1].setClickable(false);
                 play2Activity.buttons[3][0].setClickable(true);
                 play2Activity.buttons[3][1].setClickable(true);
-
             }
             if(pass==2){
                 play2Activity.buttons[3][0].setClickable(false);
@@ -54,15 +61,16 @@ public class GButton extends AppCompatButton {
                 play2Activity.buttons[1][1].setClickable(false);
                 play2Activity.buttons[0][0].setClickable(true);
                 play2Activity.buttons[0][1].setClickable(true);
-                setBackground(getResources().getDrawable(R.drawable.dalgonaxml));
+            }
+            if(pass==5){
+                play2Activity.buttons[0][0].setClickable(false);
+                play2Activity.buttons[0][1].setClickable(false);
             }
         }
-
         if(!isClickable()){
             return false;
-        } // 이미 한번 클릭됐으면 블락 못열음
-        setClickable(false);  //한번 열면 클릭 못하게
-
+        }
+        setClickable(false);
         return true;
     }
 }

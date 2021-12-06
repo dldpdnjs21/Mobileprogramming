@@ -1,6 +1,7 @@
 package com.example.teamproject4;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -9,27 +10,57 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
+
 public class play2Activity extends AppCompatActivity {
     static GButton[][] buttons = new GButton[5][2];
     TextView textView;
     int count=0;
+    private int mnMilliSecond=1000;
+    private int value=30;
+    public static boolean end=false;
     @Override
     protected void onCreate(@Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.glass_game);
-        textView=findViewById(R.id.textView3);
+        textView=findViewById(R.id.timer2);
+        new CountDownTimer(30*1000,1000){
+            @Override
+            public void onTick(long millisUntilFinished){
+                value--;
+                textView.setText(value+"초");
+                if(end)
+                    textView.setText("게임 종료");
+                if(GButton.pass==5)
+                    textView.setText("게임 성공");
+            }
+            @Override
+            public void onFinish(){
+                if(GButton.pass==5){
+                    textView.setText("게임 성공");
+                }else{
+                    textView.setText("게임 종료");
+                    end=true;
+                }
+            }
+        }.start();
         int i=0,j=0;
-        Boolean bb[][] = new Boolean[9][9];
-        for (i = 0; i < 9; i++) {
-            for (j = 0; j < 9; j++) {
+        Boolean bb[][] = new Boolean[5][2];
+        for (i = 0; i < 5; i++) {
+            for (j = 0; j < 2; j++) {
                 bb[i][j] = false;
             }
         }
-        bb[0][1]=true;
+        Random r = new Random();
+        for(i=0;i<5;i++){
+            int a = r.nextInt(2);
+            bb[i][a] = true; // 유리강화 랜덤 배치
+        }
+        /*bb[0][1]=true;
         bb[1][0]=true;
         bb[2][1]=true;
         bb[3][1]=true;
-        bb[4][0]=true;
+        bb[4][0]=true;*/
         TableLayout table;
         table = (TableLayout) findViewById(R.id.tableLayout2);
         for (i = 0; i < 5; i++) {
@@ -47,14 +78,7 @@ public class play2Activity extends AppCompatActivity {
                 tableRow.addView(buttons[i][j]);
             }
         }
-
-        /*for(i=0;i<4;i++){
-            for(j=0;j<2;j++){
-                buttons[i][j].setClickable(false);
-            }
-        }*/
-
-        for(i=0;i<5;i++){
+        for(i=0;i<5;i++){ //버튼클릭
             for(j=0;j<2;j++){
                 for(int x=0;x<4;x++){
                     for(int y=0;y<2;y++){
@@ -64,7 +88,6 @@ public class play2Activity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         ((GButton) view).GClick();
-                        textView.setText(String.valueOf(GButton.pass));
                     }
                 });
             }
