@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatButton;
 public class DButton extends AppCompatButton {
     int x, y;
     boolean dalgona;
-    static public int lines=20;
+
 
     public DButton(Context context, int x, int y, boolean a) { //생성자
         super(context);
@@ -25,23 +25,23 @@ public class DButton extends AppCompatButton {
     }
     public boolean DClick() {
         if(play1Activity.end){
-            for(int i=0;i<10;i++)
-                for(int j=0;j<10;j++)
+            for(int i=0;i<11;i++)
+                for(int j=0;j<11;j++)
                     play1Activity.buttons[i][j].setClickable(false); // 모든 버튼 클릭 비활성화
             return true; //게임 실패
         }
         if(dalgona==false){ //다른 버튼 눌렀을때
-            for(int i=0;i<10;i++)
-                for(int j=0;j<10;j++)
+            for(int i=0;i<11;i++)
+                for(int j=0;j<11;j++)
                     play1Activity.buttons[i][j].setClickable(false); // 모든 버튼 클릭 비활성화
             play1Activity.end=true;
             return true; //게임 실패
         }else{ //성공
             setBackground(getResources().getDrawable(R.drawable.dalgonaxml));
-            lines--;
-            if(lines==0){
-                for(int i=0;i<10;i++)
-                    for(int j=0;j<10;j++)
+            play1Activity.lines--;
+            if(play1Activity.lines==0){
+                for(int i=0;i<11;i++)
+                    for(int j=0;j<11;j++)
                         play1Activity.buttons[i][j].setClickable(false);
             }
         }

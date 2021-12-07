@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 public class popupActivity extends Activity {
 
-    TextView txtText;
-
+   // TextView txtText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,34 +21,52 @@ public class popupActivity extends Activity {
         setContentView(R.layout.popup_activity);
 
         //UI 객체생성
-        txtText = (TextView)findViewById(R.id.txtText);
+//        txtText = (TextView)findViewById(R.id.txtText);
 
         //데이터 가져오기
-        Intent intent = getIntent();
-        String data = intent.getStringExtra("data");
-        txtText.setText(data);
+     //   Intent intent = getIntent();
+       // String data = intent.getStringExtra("data");
+       // txtText.setText(data);
 
-        Button imageButton = (Button) findViewById(R.id.button7);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        Button imageButton1 = (Button) findViewById(R.id.button5);
+        imageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), play1Activity.class);
+                intent.putExtra("number", 1);
+                //startActivityForResult(intent, 1);
+                startActivity(intent);
+            }
+        });
+        Button imageButton2 = (Button) findViewById(R.id.button6);
+        imageButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), play1Activity.class);
+                intent.putExtra("number", 2);
+               // startActivityForResult(intent, 2);
+                startActivity(intent);
+            }
+        });
+        Button imageButton3 = (Button) findViewById(R.id.button7);
+        imageButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), play1Activity.class);
+                intent.putExtra("number", 3);
+                //startActivityForResult(intent, 3);
                 startActivity(intent);
             }
         });
     }
-
     //확인 버튼 클릭
     public void mOnClose(View v){
         //데이터 전달하기
         Intent intent = new Intent();
-        intent.putExtra("result", "Close Popup");
         setResult(RESULT_OK, intent);
-
         //액티비티(팝업) 닫기
         finish();
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //바깥레이어 클릭시 안닫히게
@@ -58,13 +75,9 @@ public class popupActivity extends Activity {
         }
         return true;
     }
-
     @Override
     public void onBackPressed() {
         //안드로이드 백버튼 막기
         return;
     }
-
-
-
 }

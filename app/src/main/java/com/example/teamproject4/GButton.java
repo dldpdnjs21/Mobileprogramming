@@ -37,6 +37,7 @@ public class GButton extends AppCompatButton {
                     play2Activity.buttons[i][j].setClickable(false); // 모든 버튼 클릭 비활성화
             play2Activity.end=true;
         }else{
+            setBackground(getResources().getDrawable(R.drawable.linexml));
             pass++;
             if(pass==1){
                 play2Activity.buttons[4][0].setClickable(false);
