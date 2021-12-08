@@ -52,7 +52,7 @@ public class play2Activity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), game2Activity.class);
                 startActivity(intent);
                 end=false;
                 c.cancel();

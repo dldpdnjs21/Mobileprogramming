@@ -14,7 +14,9 @@
         android:selectAllOnFocus="false"
         android:shadowColor="#000000"
         android:singleLine="false"
-        android:text="달고나 어쩌고.."
+        android:text="주어진 제한 시간 30초 안에 모든 달고나를 깨부시면 게임 성공 !\n
+이때, 달고나 모양이 아닌 다른 칸을 부시게 될 시 바로 탈락하게 됩니다.\n
+난이도는 상, 중, 하로 나뉘어져 있습니다. \n(상-오징어, 중-하트, 하-사각형)"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +28,7 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#E91E63"
+        android:backgroundTint="#CF517B"
         android:text="HOME"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +43,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#E91E63"
+        android:backgroundTint="#CF517B"
         android:onClick="mOnPopupClick"
         android:text="NEXT"
         android:textSize="20sp"
