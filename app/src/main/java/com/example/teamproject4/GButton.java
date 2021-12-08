@@ -24,10 +24,10 @@ public class GButton extends AppCompatButton {
         }*/
     }
     public boolean GClick() {
-        if(play1Activity.end){
+        if(play2Activity.end){
             for(int i=0;i<10;i++)
                 for(int j=0;j<10;j++)
-                    play1Activity.buttons[i][j].setClickable(false); // 모든 버튼 클릭 비활성화
+                    play2Activity.buttons[i][j].setClickable(false); // 모든 버튼 클릭 비활성화
             return true; //게임 실패
         }
         if(tempered==false){

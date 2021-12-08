@@ -9,17 +9,17 @@
 
 
     <Button
-        android:id="@+id/game2"
+        android:id="@+id/endgame"
         android:layout_width="145dp"
         android:layout_height="50dp"
         android:backgroundTint="#E91E63"
-        android:text="다리 건너기"
+        android:text="종료"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669" />
+        app:layout_constraintVertical_bias="0.834" />
 
     <Button
         android:id="@+id/game1"
@@ -32,34 +32,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596" />
+        app:layout_constraintVertical_bias="0.687" />
 
     <Button
-        android:id="@+id/endgame"
+        android:id="@+id/game2"
         android:layout_width="145dp"
         android:layout_height="50dp"
         android:backgroundTint="#E91E63"
-        android:text="종료"
+        android:text="다리 건너기"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742" />
+        app:layout_constraintVertical_bias="0.76" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="423dp"
+        android:layout_height="238dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/oh" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="오징어게임"
-        android:textSize="55sp"
+        android:text="오징어 게임에 참여 하시겠습니까?"
         android:textColor="#E91E63"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintVertical_bias="0.526" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
