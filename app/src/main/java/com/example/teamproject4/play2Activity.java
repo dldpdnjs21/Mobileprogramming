@@ -55,6 +55,7 @@ public class play2Activity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), game2Activity.class);
                 startActivity(intent);
                 end=false;
+                GButton.pass=0;
                 c.cancel();
             }
         });
