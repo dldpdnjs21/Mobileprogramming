@@ -1,6 +1,5 @@
 package com.example.teamproject4;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
+
 public class play3Activity extends AppCompatActivity {
-    int mine=10, com=10, minebet=0, combet=0;
+    static int mine=10, com=10, minebet=0, combet=0;
     int i,j=0;
     int com_b, mine_b;
     int n,a;
@@ -23,10 +23,9 @@ public class play3Activity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.bead_game);
-
-        TextView t=(TextView) findViewById(R.id.textView3);
         TextView t1=(TextView) findViewById(R.id.textView4);
         TextView t2=(TextView) findViewById(R.id.textView5);
+        TextView t=(TextView) findViewById(R.id.textView3);
         t.setText("상대 구슬 개수: 10개");
         t1.setText("나의 구슬 개수: 10개");
         t2.setText("상대 구슬 베팅 개수: ?개");
@@ -34,10 +33,9 @@ public class play3Activity extends AppCompatActivity {
         a = r.nextInt(2); // a는 0이랑 1 둘중 하나 배정되는거.. 0이면 컴이 공격 1이면 사용자가 공격
         Button odd = (Button) findViewById(R.id.oddbtn);
         Button even = (Button)findViewById(R.id.evenbtn);
-        Button b = (Button) findViewById(R.id.button9);
+        Button b = (Button) findViewById(R.id.button4); //베팅하는 버튼
 
-        while(mine<20&&com<20){
-            odd.setClickable(false);
+           /* odd.setClickable(false);
             even.setClickable(false);
             b.setClickable(false);
             t2.setText("상대 구슬 베팅 개수: ?개");
@@ -167,7 +165,7 @@ public class play3Activity extends AppCompatActivity {
 
                if(a==0)
                    continue;
-            }
-        }
+            }*/
+
     }
 }
