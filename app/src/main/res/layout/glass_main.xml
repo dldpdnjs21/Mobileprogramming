@@ -34,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.702" />
+        app:layout_constraintVertical_bias="0.798" />
 
     <Button
         android:id="@+id/button1"
@@ -52,8 +52,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="409dp"
-        android:layout_height="234dp"
+        android:layout_width="419dp"
+        android:layout_height="201dp"
         android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,12 +71,12 @@
         android:text="판을 골라 다리를 무사히 건너라!"
         android:textAlignment="center"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="RtlCompat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

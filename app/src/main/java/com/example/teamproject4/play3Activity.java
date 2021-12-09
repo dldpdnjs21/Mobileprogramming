@@ -1,19 +1,16 @@
 package com.example.teamproject4;
 
-import static android.widget.Toast.makeText;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Random;
-
 
 public class play3Activity extends AppCompatActivity {
 
@@ -21,29 +18,38 @@ public class play3Activity extends AppCompatActivity {
 
     int com_b = 2, mine_b = 2;
     int a;
-    boolean next = false;
     @Override
     protected void onCreate(@Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.bead_game);
 
-        TextView t1 = (TextView) findViewById(R.id.textView4);
-        TextView t2 = (TextView) findViewById(R.id.textView5);
-        TextView t = (TextView) findViewById(R.id.textView3);
-        TextView t3 = (TextView) findViewById(R.id.textView6);
+        TextView t1 =findViewById(R.id.textView4);
+        TextView t2 = findViewById(R.id.textView5);
+        TextView t =findViewById(R.id.textView3);
+        ImageView i = findViewById(R.id.imageView4);
         t.setText("상대 구슬 개수: 10개");
         t1.setText("나의 구슬 개수: 10개");
         t2.setText("상대 구슬 베팅 개수: ?개");
 
-        Button odd = (Button) findViewById(R.id.oddbtn);
-        Button even = (Button) findViewById(R.id.evenbtn);
-        Button b = (Button) findViewById(R.id.button4); //베팅하는 버튼
+        Button odd = findViewById(R.id.oddbtn);
+        Button even = findViewById(R.id.evenbtn);
+        Button b = findViewById(R.id.button4); //베팅하는 버튼
+        Button back = findViewById(R.id.button8);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), game3Activity.class);
+                startActivity(intent);
+            }
+        });
         Random r = new Random();
         a = r.nextInt(2); // a는 0이랑 1 둘중 하나 배정되는거.. 0이면 컴이 공격 1이면 사용자가 공격
         if(a==0){
-            t3.setText("컴퓨터 선공");
+
+            t2.setText("컴퓨터가 먼저 공격합니다.\n구슬을 베팅하세요.");
         }else if(a==1){
-            t3.setText("나의 선공");
+            i.setImageDrawable(getResources().getDrawable(R.drawable.img));
+            t2.setText("당신 먼저 공격합니다.\n구슬을 베팅하세요.");
         }
         odd.setClickable(false);
         even.setClickable(false);
@@ -63,15 +69,15 @@ public class play3Activity extends AppCompatActivity {
                     if(minebet%2==0){ //내가 베팅한 구슬이 짝수임
                         mine_b=0;
                         if(com_b==0){//컴퓨터는 짝수를 골랐음
-                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n 상대가 고른 결과는 짝수로 당신이 졌습니다.\n구슬"+combet+"개를 빼앗겼습니다!\n 이제 당신의 공격 차례입니다.");
+                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n상대가 고른 결과는 짝수로 당신이 졌습니다.\n구슬"+combet+"개를 빼앗겼습니다!\n 이제 당신의 공격 차례입니다.");
                         }else
-                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n 상대가 고른 결과는 홀수로 당신이 이겼습니다.\n구슬"+combet+"개를 빼앗았습니다!\n 이제 당신의 공격 차례입니다.");
+                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n상대가 고른 결과는 홀수로 당신이 이겼습니다.\n구슬"+combet+"개를 빼앗았습니다!\n 이제 당신의 공격 차례입니다.");
                     }else{ //내가 베팅한 구슬이 홀수임
                         mine_b=1;
                         if(com_b==1){//컴퓨터도 홀수를 골랐을때
-                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n 상대가 고른 결과는 홀수로 당신이 졌습니다.\n구슬"+combet+"개를 빼앗겼습니다!\n 이제 당신의 공격 차례입니다.");
+                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n상대가 고른 결과는 홀수로 당신이 졌습니다.\n구슬"+combet+"개를 빼앗겼습니다!\n 이제 당신의 공격 차례입니다.");
                         }else
-                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n 상대가 고른 결과는 짝수로 당신이 이겼습니다.\n구슬"+combet+"개를 빼앗았습니다!\n 이제 당신의 공격 차례입니다.");
+                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n상대가 고른 결과는 짝수로 당신이 이겼습니다.\n구슬"+combet+"개를 빼앗았습니다!\n 이제 당신의 공격 차례입니다.");
                     }
 
                     if(mine_b==com_b){ //컴퓨터가 내 홀짝 맞춤
@@ -91,19 +97,21 @@ public class play3Activity extends AppCompatActivity {
                             odd.setClickable(false);
                             even.setClickable(false);
                             b.setClickable(false);
-                            t3.setText("컴퓨터 승리");
-                            t2.setText("모든 구슬을 뺴앗겼습니다! ");
+                            //t3.setText("컴퓨터 승리");
+                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n상대가 고른 결과는 홀수로 당신이 졌습니다.\n모든 구슬을 빼앗겼습니다! ");
                         }
                         if(mine>=20){
                             odd.setClickable(false);
                             even.setClickable(false);
                             b.setClickable(false);
-                            t3.setText("나의 승리");
-                            t2.setText("모든 구슬을 뺴앗았습니다! ");
+                            //t3.setText("나의 승리");
+                            i.setImageDrawable(getResources().getDrawable(R.drawable.img));
+                            t2.setText("상대 구슬 베팅 개수는 "+combet+"개\n상대가 고른 결과는 짝수로 당신이 이겼습니다.\n모든 구슬을 빼앗았습니다! "); //
                         }
                     }else{
-                        t3.setText("나의 공격");
-                        Toast.makeText(getApplicationContext(),"구슬을 베팅하세요!",Toast.LENGTH_LONG).show();
+                        i.setImageDrawable(getResources().getDrawable(R.drawable.img));
+                        //t3.setText("나의 공격");
+                        Toast.makeText(getApplicationContext(),"당신의 공격 차례입니다. 구슬을 베팅하세요!",Toast.LENGTH_LONG).show();
                     }
                 }
                 else if(a==1){ //베팅 버튼을 눌렀는데 나의 공격 차례 였을 때
@@ -118,15 +126,12 @@ public class play3Activity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             mine_b = 1;//내가 고른건 홀수로 설정
-                           // Toast.makeText(getApplicationContext(),"상대의 구슬 베팅 개수는 "+combet+"개 였습니다!",Toast.LENGTH_LONG).show();
-
                             if(com_b==0){ //상대방구슬이 짝수임
                                 t2.setText("상대 구슬 베팅 개수는 " + combet + "개 짝수이므로 당신이 졌습니다.\n 구슬"+minebet+"개를 빼앗겼습니다!\n 이제 컴퓨터의 공격 차례입니다.");
                                 mine = mine - minebet; //내가 졌으니까 내가 건만큼 뺏김
                                 com = com + minebet;
                                 t1.setText("나의 구슬 개수: " + mine + "개");
                                 t.setText("상대 구슬 개수: " + com + "개");
-                                next = true;
                                 a=0;
                             }else{ //상대방 구슬이 홀수임
                                 t2.setText("상대 구슬 베팅 개수는 " + combet + "개 홀수이므로 당신이 이겼습니다.\n 구슬"+minebet+"개를 빼앗았습니다!\n 이제 컴퓨터의 공격 차례입니다.");
@@ -138,46 +143,28 @@ public class play3Activity extends AppCompatActivity {
                                 }
                                 t1.setText("나의 구슬 개수: " + mine + "개");
                                 t.setText("상대 구슬 개수: " + com + "개");
-                                next = true;
                                 a=0;
                             }
-                           /* if (mine_b == com_b) { //내가 홀짝 맞춤
-                                mine = mine + minebet; //내가 건 만큼 컴퓨터가 나한테 줘야돼
-                                com = com - minebet; // 나한테 준 만큼 잃음
-                                if(com<0){
-                                    mine=20;
-                                    com=0;
-                                }
-                                t1.setText("나의 구슬 개수: " + mine + "개");
-                                t.setText("상대 구슬 개수: " + com + "개");
-                                next = true;
-                                a=0;
-                            } else {
-                                mine = mine - minebet; //내가 졌으니까 내가 건만큼 뺏김
-                                com = com + minebet;
-                                t1.setText("나의 구슬 개수: " + mine + "개");
-                                t.setText("상대 구슬 개수: " + com + "개");
-                                next = true;
-                                a=0;
-                            }*/
                             if(mine>=20||com>=20){
                                 if(com>=20){
                                     odd.setClickable(false);
                                     even.setClickable(false);
                                     b.setClickable(false);
-                                    t3.setText("컴퓨터 승리");
-                                    t2.setText("모든 구슬을 뺴앗겼습니다! ");
+                                    //t3.setText("컴퓨터 승리");
+                                    i.setImageDrawable(getResources().getDrawable(R.drawable.com));
+                                    t2.setText("상대 구슬 베팅 개수는 " + combet + "개 짝수이므로 당신이 졌습니다.\n모든 구슬을 빼앗겼습니다!\n컴퓨터의 승리 ");
                                 }
                                 if(mine>=20){
                                     odd.setClickable(false);
                                     even.setClickable(false);
                                     b.setClickable(false);
-                                    t3.setText("나의 승리");
-                                    t2.setText("모든 구슬을 뺴앗었습니다! ");
+                                    //t3.setText("나의 승리");
+                                    t2.setText("상대 구슬 베팅 개수는 " + combet + "개 홀수이므로 당신이 이겼습니다.\n모든 구슬을 빼앗었습니다!\n나의 승리 ");
                                 }
                             }else{
-                                t3.setText("컴퓨터의 공격");
-                                Toast.makeText(getApplicationContext(),"구슬을 베팅하세요!",Toast.LENGTH_LONG).show();
+                                i.setImageDrawable(getResources().getDrawable(R.drawable.com));
+                                //t3.setText("컴퓨터의 공격");
+                                Toast.makeText(getApplicationContext(),"컴퓨터의 공격 차례입니다. 구슬을 베팅하세요!",Toast.LENGTH_LONG).show();
                             }
                             odd.setClickable(false);
                             even.setClickable(false);
@@ -193,7 +180,6 @@ public class play3Activity extends AppCompatActivity {
                                 com = com - minebet; // 나한테 준 만큼 잃음
                                 t1.setText("나의 구슬 개수: " + mine + "개");
                                 t.setText("상대 구슬 개수: " + com + "개");
-                                next=true;
                                 a=0;
                             }else{
                                 t2.setText("상대 구슬 베팅 개수는 " + combet + "개 홀수이므로 당신이 졌습니다.\n 구슬"+minebet+"개를 빼앗겼습니다!\n 이제 컴퓨터의 공격 차례입니다.");
@@ -205,7 +191,6 @@ public class play3Activity extends AppCompatActivity {
                                 }
                                 t1.setText("나의 구슬 개수: " + mine + "개");
                                 t.setText("상대 구슬 개수: " + com + "개");
-                                next=true;
                                 a=0;
 
                             }
@@ -215,19 +200,21 @@ public class play3Activity extends AppCompatActivity {
                                     odd.setClickable(false);
                                     even.setClickable(false);
                                     b.setClickable(false);
-                                    t3.setText("컴퓨터 승리");
-                                    t2.setText("모든 구슬을 뺴앗겼습니다! ");
+                                   // t3.setText("컴퓨터 승리");
+                                    i.setImageDrawable(getResources().getDrawable(R.drawable.com));
+                                    t2.setText("상대 구슬 베팅 개수는 " + combet + "개 홀수이므로 당신이 졌습니다.\n모든 구슬을 빼앗겼습니다!\n컴퓨터의 승리 ");
                                 }
                                 if(mine>=20){
                                     odd.setClickable(false);
                                     even.setClickable(false);
                                     b.setClickable(false);
-                                    t3.setText("나의 승리");
-                                    t2.setText("모든 구슬을 뺴앗었습니다! ");
+                                    //t3.setText("나의 승리");
+                                    t2.setText("상대 구슬 베팅 개수는 " + combet + "개 짝수이므로 당신이 이겼습니다.\n모든 구슬을 빼앗었습니다!\n나의 승리 ");
                                 }
                             }else{
-                                t3.setText("컴퓨터의 공격");
-                                Toast.makeText(getApplicationContext(),"구슬을 베팅하세요!",Toast.LENGTH_LONG).show();
+                                i.setImageDrawable(getResources().getDrawable(R.drawable.com));
+                                //t3.setText("컴퓨터의 공격");
+                                Toast.makeText(getApplicationContext(),"컴퓨터의 공격 차례입니다. 구슬을 베팅하세요!",Toast.LENGTH_LONG).show();
                             }
                             odd.setClickable(false);
                             even.setClickable(false);

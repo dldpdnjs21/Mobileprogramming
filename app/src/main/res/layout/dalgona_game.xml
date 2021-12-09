@@ -49,11 +49,12 @@
         android:id="@+id/backbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#CF517B"
         android:text="돌아가기"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/timer"
-        app:layout_constraintTop_toTopOf="@+id/timer"
-        android:backgroundTint="#CF517B"/>
+        app:layout_constraintTop_toTopOf="@+id/timer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
