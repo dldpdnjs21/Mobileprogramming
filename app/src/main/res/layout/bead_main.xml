@@ -19,14 +19,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.953" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="409dp"
+        android:layout_height="220dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/agent" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="365dp"
-        android:layout_height="364dp"
+        android:layout_height="320dp"
         android:selectAllOnFocus="false"
         android:shadowColor="#000000"
         android:singleLine="false"
-        android:text="홀 짝 게임 어쩌고"
+        android:text="홀!짝? 게임은 컴퓨터 또는 나로 선공이 정해지면 게임을 시작한다.
+\n 컴퓨터의 공격 차례일 때는 내가 홀수,또는 짝수로 베팅한다. 상대가 맞추게 될 시 상대가 베팅한 갯수만큼 빼앗긴다.\n나의 공격 차례가 되면 베팅할 개수를 정해 베팅한 후 홀일지, 짝일지 예측하여 버튼을 눌러줍니다!
+\n예측에 성공하면 베팅한 개수만큼 구슬을 빼앗아 오게됩니다.\n상대의 구슬 개수를 모두 빼앗아오면 성공!"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,18 +61,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.953" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <EditText
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="376dp"
@@ -67,7 +68,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="홀 짝 게임"
+        android:text="구슬 게임 : 홀!짝? 게임"
         android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +76,7 @@
         app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058"
+        app:layout_constraintVertical_bias="0.014"
         tools:ignore="RtlCompat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

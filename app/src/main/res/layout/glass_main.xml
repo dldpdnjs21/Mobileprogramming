@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="365dp"
-        android:layout_height="364dp"
+        android:layout_height="250dp"
         android:selectAllOnFocus="false"
         android:shadowColor="#000000"
         android:singleLine="false"
@@ -51,16 +51,15 @@
         app:layout_constraintVertical_bias="0.953" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView3"
+        android:layout_width="409dp"
+        android:layout_height="234dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/agent" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
