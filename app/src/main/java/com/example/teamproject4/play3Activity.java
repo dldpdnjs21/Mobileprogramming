@@ -14,10 +14,9 @@ import java.util.Random;
 
 public class play3Activity extends AppCompatActivity {
 
-    static int mine = 10, com = 10, minebet = 0, combet = 0;
-
+    int mine = 10, com = 10, minebet = 0, combet = 0;
     int com_b = 2, mine_b = 2;
-    int a;
+    int a,n;
     @Override
     protected void onCreate(@Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
@@ -57,14 +56,21 @@ public class play3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText e = (EditText) findViewById(R.id.bet);
-                minebet = Integer.parseInt(e.getText().toString());
+                n = Integer.parseInt(e.getText().toString());
+                if(n>mine){
+                    Toast.makeText(getApplicationContext(),"당신의 구슬 개수보다 많은 수의 구슬을 베팅할 수 없습니다.",Toast.LENGTH_SHORT).show();
+                    odd.setClickable(false);
+                    even.setClickable(false);
+                }else{
+                    minebet=n;
+                }
                 if (com > 5) {
                     combet = r.nextInt(5) + 1; // 1 2 3 4 5
                 } else
                     combet = r.nextInt(com) + 1; //컴퓨터가 가진 구슬 갯수가 5개 이하일때는 얘가 가진만큼에서만 랜덤함수 돌아감
 
                //컴퓨터 공격일때
-                if(a==0){
+                if(a==0&&n==minebet){
                     com_b = r.nextInt(2);//0이면 짝 1이면 홀 ..을 골랐다고 치는거임
                     if(minebet%2==0){ //내가 베팅한 구슬이 짝수임
                         mine_b=0;
@@ -114,14 +120,17 @@ public class play3Activity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"당신의 공격 차례입니다. 구슬을 베팅하세요!",Toast.LENGTH_LONG).show();
                     }
                 }
-                else if(a==1){ //베팅 버튼을 눌렀는데 나의 공격 차례 였을 때
+                else if(a==1&&n==minebet){ //베팅 버튼을 눌렀는데 나의 공격 차례 였을 때
                     if (combet % 2 == 0) { //컴퓨터가 건 구슬 개수 홀수인지 짝수인지
                         com_b = 0;
                     } else
                         com_b = 1;
                     Toast.makeText(getApplicationContext(),"상대가 베팅한 구슬의 개수는 홀수일까요 짝수일까요?",Toast.LENGTH_LONG).show();
-                    odd.setClickable(true);
-                    even.setClickable(true);
+
+                        odd.setClickable(true);
+                        even.setClickable(true);
+
+
                     odd.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -130,8 +139,13 @@ public class play3Activity extends AppCompatActivity {
                                 t2.setText("상대 구슬 베팅 개수는 " + combet + "개 짝수이므로 당신이 졌습니다.\n 구슬"+minebet+"개를 빼앗겼습니다!\n 이제 컴퓨터의 공격 차례입니다.");
                                 mine = mine - minebet; //내가 졌으니까 내가 건만큼 뺏김
                                 com = com + minebet;
+                                if(mine<0){
+                                    mine=0;
+                                    com=20;
+                                }
                                 t1.setText("나의 구슬 개수: " + mine + "개");
                                 t.setText("상대 구슬 개수: " + com + "개");
+
                                 a=0;
                             }else{ //상대방 구슬이 홀수임
                                 t2.setText("상대 구슬 베팅 개수는 " + combet + "개 홀수이므로 당신이 이겼습니다.\n 구슬"+minebet+"개를 빼앗았습니다!\n 이제 컴퓨터의 공격 차례입니다.");
@@ -178,17 +192,23 @@ public class play3Activity extends AppCompatActivity {
                                 t2.setText("상대 구슬 베팅 개수는 " + combet + "개 짝수이므로 당신이 이겼습니다.\n 구슬"+minebet+"개를 빼앗았습니다!\n 이제 컴퓨터의 공격 차례입니다.");
                                 mine = mine + minebet; //내가 건 만큼 컴퓨터가 나한테 줘야돼
                                 com = com - minebet; // 나한테 준 만큼 잃음
+                                if(mine>20){
+                                    mine=20;
+                                    com=0;
+                                }
                                 t1.setText("나의 구슬 개수: " + mine + "개");
                                 t.setText("상대 구슬 개수: " + com + "개");
+
                                 a=0;
                             }else{
                                 t2.setText("상대 구슬 베팅 개수는 " + combet + "개 홀수이므로 당신이 졌습니다.\n 구슬"+minebet+"개를 빼앗겼습니다!\n 이제 컴퓨터의 공격 차례입니다.");
                                 mine = mine - minebet; //내가 졌으니까 내가 건만큼 뺏김
                                 com = com + minebet;
-                                if(com<0){
-                                    mine=20;
-                                    com=0;
+                                if(mine<0){
+                                    mine=0;
+                                    com=20;
                                 }
+
                                 t1.setText("나의 구슬 개수: " + mine + "개");
                                 t.setText("상대 구슬 개수: " + com + "개");
                                 a=0;
