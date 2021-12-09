@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button button3 = (Button) findViewById(R.id.endgame);
+        Button button3 = (Button) findViewById(R.id.game3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), play3Activity.class);
+                Intent intent = new Intent(getApplicationContext(), game3Activity.class);
                 startActivity(intent);
             }
         });
